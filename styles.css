@@ -1,0 +1,65 @@
+.instructions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.human-selection-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+
+.human-selection-buttons button {
+    border: none;
+    border-radius: 16px;
+    cursor: pointer; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+}
+
+.human-selection-buttons button img{
+    width: 250px;
+    height: 250px;
+    border-radius: 16px;
+}
+
+.villains {
+    display: flex;
+    justify-content: center;
+
+}
+
+.villains img {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 30px;
+    border-radius: 16px;
+}
+
+.winner-announcement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: larger;
+}
+
+.restart {
+    display: flex;
+    justify-content: center;
+}
+
+#restart-button {
+    margin-top: 8px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); 
+    color: white; 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    border: none; 
+    border-radius: 30px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+}

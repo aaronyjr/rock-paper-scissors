@@ -4,8 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+    <div class="instructions">
+        <h1>Rock, paper or scissors?!</h1>
+    </div>
+
+    <div class="human-selection-buttons">
+        <button onclick="playRound('rock')"><img src="./img/rock.jpg" alt="Picture of rock"></button>
+        <button onclick="playRound('paper')"><img src="./img/paper.jpg" alt="Picture of paper"></button>
+        <button onclick="playRound('scissors')"><img src="./img/scissors.jpg" alt="Picture of scissors"></button>
+    </div>
+
+    <div class="villains">
+        <img src="./img/villains.jpg">
+    </div>
+
+    <div class="winner-announcement">
+        <p id="announcement">Winner announcement text</p>
+        <p id="current-score">Current score - 0 : 0</p>
+    </div>
+
+    <div class="restart">
+        <button id="restart-button">Restart</button>
+    </div>
+
     <script src="./script.js"></script>
 </body>
 </html>
