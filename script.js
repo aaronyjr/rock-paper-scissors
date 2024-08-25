@@ -106,6 +106,9 @@ function restart() {
   humanScore = 0;
   computerScore = 0;
   tabulateScore()
+
+  winnerAnnouncementText.textContent = "Let's play!"
+
   villainPicture.src = './img/villains.jpg'
 
   // enable buttons again
