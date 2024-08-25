@@ -1,5 +1,9 @@
 let humanScore = 0;
 let computerScore = 0;
+let currentScore = document.querySelector('#current-score')
+let villainPicture = document.querySelector('#villain-img')
+let winnerAnnouncementText = document.querySelector('#announcement')
+let humanButtons = document.querySelectorAll('.human-selection-buttons button')
 
 function getComputerChoice() {
   const res = Math.floor(Math.random() * 3);
@@ -32,12 +36,23 @@ function getHumanChoice(choice) {
 
 function playRound(humanChoice) {
   let computerChoice = getComputerChoice();
-  let winnerAnnouncementText = document.querySelector('#announcement')
+
+  // change image of villains
+  
+  switch (computerChoice) {
+    case 'rock':
+      villainPicture.src = './img/rock.jpg';
+      break;
+    case 'paper': 
+      villainPicture.src = './img/paper.jpg';
+      break;
+    case 'scissors':
+      villainPicture.src = './img/scissors.jpg';
+      break;
+  }
 
   if (humanChoice == computerChoice) {
     winnerAnnouncementText.textContent = ("It's a tie!");
-    computerScore += 1;
-    humanScore += 1;
   } else if (humanChoice == "rock") {
     if (computerChoice == "paper") {
       winnerAnnouncementText.textContent = "Paper beats rock, you lose!";
@@ -65,31 +80,36 @@ function playRound(humanChoice) {
   }
 
   tabulateScore();
-  // console.log(`Score - ${humanScore} : ${computerScore}`);
 }
 
 function tabulateScore() {
-
+  if (humanScore < 5 && computerScore < 5) {
+    currentScore.textContent = `Current score - ${humanScore} : ${computerScore}`
+  } else if (humanScore >= 5) {
+    winnerAnnouncementText.textContent = "You are the winner! Press restart to play again!"
+    currentScore.textContent = `Final score - ${humanScore} : ${computerScore}`
+    // disable buttons after game over
+    humanButtons.forEach(button => {
+      button.disabled = true;
+    });
+  } else {
+    winnerAnnouncementText.textContent = "You lost xD! Press restart to play again!"
+    currentScore.textContent = `Final score - ${humanScore} : ${computerScore}`
+    // disable buttons after game over
+    humanButtons.forEach(button => {
+      button.disabled = true;
+    });
+  }
 }
 
-// Tabulate score
-// Restart logic
-// Change image of villain aft each round
+function restart() {
+  humanScore = 0;
+  computerScore = 0;
+  tabulateScore()
+  villainPicture.src = './img/villains.jpg'
 
-// function playGame() {
-//   for (let i = 0; i < 5; i++) {
-//     const humanSelection = getHumanChoice();
-//     const computerSelection = getComputerChoice();
-//     playRound(humanSelection, computerSelection);
-//   }
-//   if (humanScore > computerScore) {
-//     console.log("You win!");
-//   } else if (computerScore > humanScore) {
-//     console.log("You lose!");
-//   } else {
-//     console.log("It's a tie!");
-//   }
-//   console.log(`Final score - ${humanScore} : ${computerScore}`);
-// }
-
-// playGame();
+  // enable buttons again
+  humanButtons.forEach(button => {
+    button.disabled = false;
+  })
+}
